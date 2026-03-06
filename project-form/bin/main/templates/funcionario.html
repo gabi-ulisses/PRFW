@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Funcionário</title>
+</head>
+<body>
+	<h1>Cadastro de Funcionário</h1>
+
+	<form method="post" th:action="@{/funcionario/salvar}" th:object="${funcionario}">
+		<p>
+			<label for="nome">Nome:</label>
+			<input type="text" th:field="*{nome}">  <!-- th:field retorna name, value e id -->
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name error</span>
+		</p>
+		<p>
+			<label for="email">E-mail:</label>
+			<input type="text" th:field="*{email}">
+			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</span>
+		</p>
+		<p>
+			<label for="idade">Idade:</label>
+			<input type="text" th:field="*{idade}">
+			<span th:if="${#fields.hasErrors('idade')}" th:errors="*{idade}">Idade error</span>
+		</p>
+		<p>
+			<label for="fone">Telefone:</label>
+			<input type="text" th:field="*{fone}">
+			<span th:if="${#fields.hasErrors('fone')}" th:errors="*{fone}">Fone error</span>
+		</p>
+		<p>
+			<button type="submit">Enviar</button>
+		</p>
+	
+	</form>
+</body>
+</html>
