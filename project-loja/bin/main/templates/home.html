@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loja WebFrameworks</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Loja WebFrameworks</h1>
+		<p>Olá, <span th:text="${nome}">usuário</span>!</p>
+		
+		<ul>
+			<li>
+			Clientes
+				<ul>
+					<li><a th:href="@{/cliente/listar}">Listar</a></li>
+					<li><a th:href="@{/cliente/editar}">Editar</a></li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>
