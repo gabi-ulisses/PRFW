@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loja WebFrameworks</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Loja WebFrameworks</h1>
+		
+		<p th:if="${#lists.isEmpty(produtos)}">
+			A consulta não gerou resultados.
+		</p>
+		<table  border="1" th:if="${not #lists.isEmpty(produtos)}">
+			<tr>
+				<th>ID</th>
+				<th>Descrição</th>
+				<th>Preço</th>
+			</tr>
+			
+			<tr th:each="produto : ${produtos}">
+				<td th:text="${produto.id}">1</td>
+				<td th:text="${produto.descricao}">produto</td>
+				<td th:text="${produto.preco}">produto</td>
+			</tr>
+		</table>
+	</body>
+</html>
