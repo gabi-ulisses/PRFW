@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>IFSP - Lista de Atrasos</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Lista de Atrasos</h1>
+		
+		<p th:if="${#lists.isEmpty(ocorrencias)}">
+			A consulta não gerou resultados.
+		</p>
+		
+		<table border="1" th:if="${not #lists.isEmpty(ocorrencias)}">
+			<tr>
+				<th>ID</th>
+				<th>Nome do Aluno</th>
+				<th>Horário</th>
+				<th>Justificativa</th>
+			</tr>
+			
+			<tr th:each="ocorrencia : ${ocorrencias}">
+				<td th:text="${ocorrencia.id}"></td>
+				<td th:text="${ocorrencia.nome_aluno}"></td>
+				<td th:text="${ocorrencia.horario}"></td>
+				<td th:text="${ocorrencia.justificativa}"></td>
+			</tr>
+		</table>
+	</body>
+</html>

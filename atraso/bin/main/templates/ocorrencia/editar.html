@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>IFSP - Registro de Ocorrência</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/estilos.css}">
+	</head>
+	
+	<body>		
+		<h2>Registro de Ocorrência</h2>
+		<form method="post" 
+			th:action="@{/ocorrencia/salvar}"
+			th:object="${ocorrencia}">
+			<label>ID:</label>
+			<input type="text" th:field="*{id}" readonly>
+			<span class="error" th:if="#{fields.hasErrors('id')}" th:errors="*{id}">erro</span>
+			<br>
+			
+			<label>Nome do aluno:</label>
+			<input type="text" th:field="*{nome_aluno}" required>
+			<span class="error" th:if="#{fields.hasErrors('nome_aluno')}" th:errors="*{nome_aluno}">erro</span>
+			<br>
+
+			<label for="horario">Horário</label>
+			<input type="datetime-local" id="horario" th:field="*{horario}" required>
+			<span class="error" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}">erro</span>
+			<br>
+			
+			<label>Justificativa:</label>
+			<input type="text" th:field="*{justificativa}" required>
+			<span class="error" th:if="#{fields.hasErrors('justificativa')}" th:errors="*{justificativa}">erro</span>
+			<br>			
+			
+			<br>
+			<button type="submit">Enviar</button>
+		</form>
+		
+	</body>
+</html>
