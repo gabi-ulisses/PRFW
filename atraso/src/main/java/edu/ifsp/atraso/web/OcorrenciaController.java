@@ -61,6 +61,19 @@ public class OcorrenciaController {
 		return "redirect:/ocorrencia/%d/editar".formatted(ocorrencia.getId());
 	}
 
+	@GetMapping("/{id}/excluir")
+	public String excluir(
+			@PathVariable(name = "id") Integer id, 
+			Model model) {
+		
+		Ocorrencia ocorrencia = repo.findById(id).get();
+		model.addAttribute("ocorrencia", ocorrencia);
+		
+		repo.delete(ocorrencia);
+
+		return "redirect:/ocorrencia/listar";
+	}
+
 	
 	@GetMapping("/listar")
 	public String listar(Model model) {
