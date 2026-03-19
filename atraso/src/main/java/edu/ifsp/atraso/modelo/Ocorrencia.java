@@ -17,7 +17,7 @@ public class Ocorrencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
 
-    @Size(min = 5, message = "{cliente.nome.size}")
+    @Size(min = 5, message = "{ocorrencia.nome.size}")
     private String nome_aluno;
 
     private LocalDateTime horario;
