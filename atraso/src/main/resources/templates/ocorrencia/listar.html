@@ -10,6 +10,8 @@
 		
 		<p th:if="${#lists.isEmpty(ocorrencias)}">
 			A consulta não gerou resultados.
+			<br>
+			<a th:href="@{'/'}">Voltar</a>
 		</p>
 		
 		<table border="1" th:if="${not #lists.isEmpty(ocorrencias)}">
@@ -18,13 +20,16 @@
 				<th>Nome do Aluno</th>
 				<th>Horário</th>
 				<th>Justificativa</th>
+				<th colspan="2">Funcionalidades</th>
 			</tr>
 			
-			<tr th:each="ocorrencia : ${ocorrencias}">
+			<tr th:each="ocorrencia : ${ocorrencias}" >
 				<td th:text="${ocorrencia.id}"></td>
 				<td th:text="${ocorrencia.nome_aluno}"></td>
 				<td th:text="${ocorrencia.horario}"></td>
 				<td th:text="${ocorrencia.justificativa}"></td>
+				<td><a th:href="@{'/ocorrencia/' + ${ocorrencia.id} + '/editar'}">Editar</a></td>
+				<td><a th:href="@{'/ocorrencia/' + ${ocorrencia.id} + '/excluir'}">Excluir</a></td>
 			</tr>
 		</table>
 	</body>
