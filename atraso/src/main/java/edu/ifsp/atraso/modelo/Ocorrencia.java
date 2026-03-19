@@ -2,31 +2,33 @@ package edu.ifsp.atraso.modelo;
 
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
+@Table (name="ocorrencia")
 public class Ocorrencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
 
-    @Size(min = 5, message = "{ocorrencia.nome.size}")
+    @Size(min = 5, message = "Tamanho mínimo: 5 caracteres.")
     private String nome_aluno;
 
+    @DateTimeFormat (pattern="yyyy-MM-dd'T'HH:mm")
     private LocalDateTime horario;
 
     @NotBlank(message = "A justificativa é obrigatória")
     private String justificativa;
-
-    public Ocorrencia() {
-    }
 
     @PrePersist
     protected void onCreate() {
@@ -55,7 +57,11 @@ public class Ocorrencia {
         return horario;
     }
 
-    public String getJustificativa() {
+    public void setHorario(LocalDateTime horario) {
+		this.horario = horario;
+    }
+
+	public String getJustificativa() {
         return justificativa;
     }
 
