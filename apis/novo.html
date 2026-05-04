@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loja WebFrameworks</title>
+		<meta charset="UTF-8">
+		<script th:src="@{/js/pedido.js}" defer></script>
+	</head>
+	
+	<body>
+		<h1>Loja WebFrameworks</h1>
+		
+		<h2>Novo pedido</h2>		
+		
+		
+		<button id="btn-carregar">Carregar produtos</button>
+		<br>
+		
+		<table border="1" id="table-produtos">
+			<tr>
+				<th>ID</th>
+				<th>Preço</th>
+				<th>Descrição</th>
+			</tr>
+			
+			<tbody>
+				<!--/*
+				Modelo (<template>) de uma linha da tabela, para ser usado em conjunto com JavaScript.  
+				*/-->
+				<template id="table-row">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</template>			
+			</tbody>
+		</table>
+		
+		
+	</body>
+</html>
